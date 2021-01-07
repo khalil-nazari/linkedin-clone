@@ -1,31 +1,32 @@
 import React from 'react';
 import './App.scss';
+import Feed from './Components/Feed/Feed';
 import Header from './Components/Header/Header';
-
+import Sidebar from './Components/Sidebar/Sidebar';
+import Widgets from './Components/Widgets/Widgets';
 
 
 function App() {
   return (
-    <div className=".pp">
+    <div className="app">
 
       {/* Header */}
       <Header />
 
 
-      {/* App Body */}
+       {/* App Body */}
+      <div className="app__body container">
+          {/* sidebare */}
+          <Sidebar />
+
+          {/* Feed */}
+          <Feed />
 
 
+          {/* Widegets */}
 
-      {/* sidebare */}
-      
-      
-      
-      {/* Feed */}
-
-
-
-      {/* Widegets */}
-
+          <Widgets />
+      </div>
     </div>
   );
 }
