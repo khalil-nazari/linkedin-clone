@@ -1,0 +1,23 @@
+/*
+    Khalil Nazari 
+    7 Jan 2020
+*/
+
+
+.inputOptions {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    color: gray;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.inputOptions:hover {
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.inputOptions > h4 {
+    margin-left: 5px;
+}

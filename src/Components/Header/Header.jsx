@@ -1,3 +1,8 @@
+/*
+    Khalil Nazari 
+    7 Jan 2020
+*/
+
 import React from 'react'
 import './Header.scss'; 
 import SearchIcon from '@material-ui/icons/Search';
@@ -6,9 +11,7 @@ import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import MessageIcon from '@material-ui/icons/Message';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HeaderOptions from './HeaderOptions';
-
 
 
 function Header() {

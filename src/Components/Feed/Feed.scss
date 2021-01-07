@@ -1,6 +1,52 @@
+/*
+    Khalil Nazari 
+    7 Jan 2020
+*/
+
 .feed {
-    background-color: #fff;
     border-radius: 10px;
-    flex: .6;
-    
+    flex: .6;    
+}
+
+
+.feed__inputContainer {
+    background-color: #fff;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+.feed__input {
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    display: flex;
+    padding: 10px;
+    color:gray; 
+    padding-left: 15px;
+
+
+    form {
+        display: flex;
+        width: 100%;
+    }
+
+    input {
+        border: none;
+        flex: 1;
+        margin-left: 10px;
+        outline-width: 0;
+        font-weight: 600;
+    }
+
+    button {
+        display: none;
+    }
+}
+
+
+.feed__inputOptions {
+    display: flex;
+    justify-content: space-evenly;
 }

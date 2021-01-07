@@ -4,6 +4,15 @@ import './Sidebar.scss';
 
 
 function Sidebar() {
+    // Print Tags
+    const recentItem = (topic) => (
+        <div className="sidebar_recentItem">
+            <span className="sidebar_hash">#</span>
+            <p>{topic}</p>
+        </div>
+    ); 
+
+    // JSX 
     return (
         <div className="sidebar">
             <div className="sidebar__top">
@@ -31,6 +40,11 @@ function Sidebar() {
             {/* Sidebar Bottom */}
             <div className="sidebar__bottom">
                 <p>Recent</p>
+                {recentItem('reactjs')}
+                {recentItem('programming')}
+                {recentItem('softwareengineering')}
+                {recentItem('programming')}
+                {recentItem('web dev')}
             </div>
         </div>
     )
