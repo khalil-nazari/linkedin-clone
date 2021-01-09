@@ -27,8 +27,10 @@ const Feed = () => {
 
     useEffect(() => {
 
-        db.collection("posts").orderBy("timestamp", "desc").onSnapshot(snapshot => 
-            setPosts(
+        // fetch data from firestore
+        db.collection("posts")
+        .orderBy("timestamp", "desc")
+        .onSnapshot(snapshot =>  setPosts (
                 snapshot.docs.map(doc=> ({
                     id : doc.id, 
                     data: doc.data(),
@@ -36,16 +38,13 @@ const Feed = () => {
             )
         );
 
-
-        
-
     }, [])
 
 
+
+    // Form submit
     const sendPost = (e) => {
         e.preventDefault();
-
-        
         db.collection('posts').add({
             name: 'Khalil', 
             description: 'khalil description ', 
@@ -60,11 +59,7 @@ const Feed = () => {
 
     // JSX
     return (
-
-      
-
         <div className="feed">
-
             {/* Input */}
             <div className="feed__inputContainer">
                 <div className="feed__input">
@@ -87,10 +82,6 @@ const Feed = () => {
                 </div>
             </div>
 
-
-
-
-
             {/* Post */
             posts.map( ({id, data: { name, description, message, photoUrl }}) =>(
                 <Post 
@@ -102,14 +93,6 @@ const Feed = () => {
                 />
             ))
             }
-            
-          
-            {/*             
-            <Post 
-                name="khalil"
-                description="This is a test desc"
-                message="This is a message test"
-            /> */}
 
         </div>
     )
