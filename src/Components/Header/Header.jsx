@@ -12,9 +12,27 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import MessageIcon from '@material-ui/icons/Message';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import HeaderOptions from './HeaderOptions';
+import { auth } from '../../Firebase/Firebase';
+import {logout} from '../../features/userSlice';
+import {useDispatch} from 'react-redux';
+import firebase from 'firebase';
 
 
 function Header() {
+
+    // var userCurr = firebase.auth().currentUser;
+    // if(userCurr != null) {
+    //     console.log(userCurr.photoURL)
+    // }
+
+    const dispatch = useDispatch();
+    
+    const logOutOfApp  = () => {
+        dispatch(logout());  // redux
+        auth.signOut();  // firebase
+    }
+
+    // JSX
     return (
         <div className="header">
             <div className="container">
@@ -35,7 +53,7 @@ function Header() {
                     <HeaderOptions Icon={BusinessCenterIcon} title="Jobs"/>
                     <HeaderOptions Icon={MessageIcon} title="Messages"/>
                     <HeaderOptions Icon={NotificationsIcon} title="Notifications"/>
-                    <HeaderOptions avatar="https://media-exp1.licdn.com/dms/image/C5103AQGXb9l2CfVHVg/profile-displayphoto-shrink_100_100/0/1529253241743?e=1615420800&v=beta&t=f4IotkuGB7kEdjQjOZLpPCM1wyL_HzxmyItgsg4Us-U" title="Me"/>
+                    <HeaderOptions onClick={logOutOfApp}  avatar={true} title="Me"/>
                 </div>
             </div>
         </div>

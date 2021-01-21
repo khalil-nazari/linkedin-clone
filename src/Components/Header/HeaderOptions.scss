@@ -5,10 +5,13 @@
     margin-right: 20px;
     color: gray;
     cursor: pointer;
+    position: relative;
 }
 
 .headerOptions:hover {
-    color:black;
+    .headerOptions__icon, .headerOptions__title {
+        color: black;
+    }
 }
 
 .headerOptions__icon {
@@ -20,4 +23,19 @@
 .headerOptions__title {
    font-size: 12px;
    font-weight: 400;
+}
+
+.headerOptions__user_btn {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.headerOptions__user_detail {
+    background-color: #fff;
+    padding: 20px;
+
+    position: absolute;
+    top: 61px;
+    right: 0;
 }

@@ -13,16 +13,18 @@ import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
 import Post from './Post';
-import { db } from '../../Firebase/Firbase'; 
+import { db } from '../../Firebase/Firebase'; 
 import firebase from 'firebase'
-
+import { useSelector } from "react-redux";
+import {selectUser} from '../../features/userSlice'
+import FlipMove from 'react-flip-move';
 
 
 const Feed = () => {
     // State
     const [posts, setPosts] = useState([]); 
     const [input, setInput] = useState(''); 
-    
+    const user = useSelector(selectUser)
 
 
     useEffect(() => {
@@ -46,10 +48,10 @@ const Feed = () => {
     const sendPost = (e) => {
         e.preventDefault();
         db.collection('posts').add({
-            name: 'Khalil', 
-            description: 'khalil description ', 
+            name: user.displayName, 
+            description: user.email, 
             message: input, 
-            photoUrl: '',
+            photoUrl: user.photoUrl ||'',
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         })
 
@@ -61,6 +63,7 @@ const Feed = () => {
     return (
         <div className="feed">
             {/* Input */}
+            
             <div className="feed__inputContainer">
                 <div className="feed__input">
                     <CreateIcon />
@@ -82,17 +85,19 @@ const Feed = () => {
                 </div>
             </div>
 
-            {/* Post */
-            posts.map( ({id, data: { name, description, message, photoUrl }}) =>(
-                <Post 
-                    key={id} 
-                    name={name}
-                    description={description}
-                    message={message}
-                    photoUrl={photoUrl}
-                />
-            ))
-            }
+
+            <FlipMove>
+                {posts.map( ({id, data: { name, description, message, photoURL }}) =>(
+
+                    <Post 
+                        key={id} 
+                        name={name}
+                        description={description}
+                        message={message}
+                        photoUrl={photoURL}
+                    />
+                ))}
+            </FlipMove>
 
         </div>
     )
